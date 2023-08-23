@@ -2,7 +2,7 @@
 Генератор паролей
 """
 import random
-from tkinter import *
+from tkinter import Tk, END, IntVar, Radiobutton, Label, Entry, Button, CENTER
 
 root = Tk()
 root.title("Генератор паролей")
@@ -29,14 +29,15 @@ symbols_with_special = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
 
 
 def get_pass():
+    """Генерация паролей"""
     len_pass = int(length.get())
     psw.delete(0, END)
 
     if var.get() == 0:
-        for i in range(len_pass):
+        for _ in range(len_pass):
             psw.insert(0, random.choice(symbols))
     elif var.get() == 1:
-        for i in range(len_pass):
+        for _ in range(len_pass):
             psw.insert(0, random.choice(symbols_with_special))
 
 
